@@ -104,17 +104,3 @@ void remove_particle(bin_t *bin_list, int i, int j)
     bin_list[j].bin_size --;
 }
 
-
-void sanity_check(int n, int num_bins, bin_t *bin_list)
-{
-    int sum = 0;
-    for(int i = 0; i < num_bins; i ++)
-    {
-        // if(bin_list[i].bin_size > 2)
-        //     printf("bin # %d has %d particles\n", i, bin_list[i].bin_size);
-        sum += bin_list[i].bin_size;
-    }
-    
-    if(sum == n) printf("The total number of particles is unchanged.\n");
-    else printf("Sum = %d, n = %d\n", sum, n);
-}

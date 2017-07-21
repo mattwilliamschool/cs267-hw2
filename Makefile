@@ -1,11 +1,6 @@
-#
-# Edison - NERSC 
-#
-# Intel Compilers are loaded by default; for other compilers please check the module list
-#
 CC = icpc
 MPCC = mpicxx
-OPENMP = -qopenmp  #Note: this is the flag for Intel compilers. Change this to -fopenmp for GNU compilers. See http://www.nersc.gov/users/computational-systems/edison/programming/using-openmp/
+OPENMP = -qopenmp
 CFLAGS = -O3 -g 
 LIBS =
 

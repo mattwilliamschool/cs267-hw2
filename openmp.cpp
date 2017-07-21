@@ -116,7 +116,6 @@ int main( int argc, char **argv )
 
         #pragma omp master
         if (DEBUG){
-            sanity_check(n, num_bins, bin_list);
             printf("This is iteration # %d\n", step);
         }
   

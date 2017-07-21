@@ -48,7 +48,7 @@ int main( int argc, char **argv )
     if (DEBUG) printf("The bins are of size %f by %f, err = %f\n", bin_y, bin_x, bin_x*bin_y*num_bins - grid_size*grid_size);
     init_grid(num_bins, bin_list);
     bin_particles(n, particles, num_bins, bin_list, bin_x, bin_y, bin_j);
-    //sanity_check(n, num_bins, bin_list);
+    
 
     //
     //  simulate a number of time steps
@@ -97,7 +97,7 @@ int main( int argc, char **argv )
         }	
 
         bin_particles(n, particles, num_bins, bin_list, bin_x, bin_y, bin_j);
-        // if (DEBUG) sanity_check(n, num_bins, bin_list);
+        
     
         if( find_option( argc, argv, "-no" ) == -1 )
         {
