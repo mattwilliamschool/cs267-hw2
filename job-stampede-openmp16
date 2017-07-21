@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J openmp16
+#SBATCH -o openmp16.%j.stdout
+#SBATCH -e openmp16.%j.error
+#SBATCH -p normal
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -t 00:10:00
+#SBATCH --mail-user=mattwilliams1515@gmail.com
+#SBATCH --mail-type=all
+
+export OMP_NUM_THREADS=16
+srun -n 1 -c 16 ./openmp -n 500 -o openmp.txt

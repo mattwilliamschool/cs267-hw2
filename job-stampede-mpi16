@@ -1,0 +1,12 @@
+#/bin/bash -l
+#SBATCH -J mpi16
+#SBATCH -o mpi16.%j.stdout
+#SBATCH -e mpi16.%j.error
+#SBATCH -p normal
+#SBATCH -N 16
+#SBATCH -n 16
+#SBATCH -t 00:10:00
+#SBATCH --mail-user=mattwilliams1515@gmail.com
+#SBATCH --mail-type=all
+
+ibrun ./mpi -n 1000 -o mpi.txt

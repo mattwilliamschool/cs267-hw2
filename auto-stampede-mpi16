@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH -J auto-mpi16
+#SBATCH -t 00:20:00
+#SBATCH -N 16
+#SBATCH -A TG-CCR140008
+#SBATCH -o auto-mpi16.%j.stdout
+#SBATCH -e auto-mpi16.%j.error
+#SBATCH -n 16
+#SBATCH -p normal
+#SBATCH --mail-user=mattwilliams1515@gmail.com
+#SBATCH --mail-type=all
+
+rm mpi.txt
+ibrun -n 1 -o 0 ./serial -n 500 -no -s mpi.txt
+ibrun -n 1 -o 0 ./mpi -p 1 -n 500 -no -s mpi.txt
+ibrun -n 2 -o 0 ./mpi -p 2 -n 500 -no -s mpi.txt
+ibrun -n 4 -o 0 ./mpi -p 4 -n 500 -no -s mpi.txt
+ibrun -n 8 -o 0 ./mpi -p 8 -n 500 -no -s mpi.txt
+ibrun -n 16 -o 0 ./mpi -p 16 -n 500 -no -s mpi.txt
+ibrun -n 2 -o 0 ./mpi -p 2 -n 1000 -no -s mpi.txt
+ibrun -n 4 -o 0 ./mpi -p 4 -n 2000 -no -s mpi.txt
+ibrun -n 8 -o 0 ./mpi -p 8 -n 4000 -no -s mpi.txt
+ibrun -n 16 -o 0 ./mpi -p 16 -n 8000 -no -s mpi.txt
+ibrun -n 1 -o 0 ./autograder -v mpi -s mpi.txt

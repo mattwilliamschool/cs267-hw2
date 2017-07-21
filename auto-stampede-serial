@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH -J auto-serial
+#SBATCH -o auto-serial.%j.stdout
+#SBATCH -e auto-serial.%j.error
+#SBATCH -p normal
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -t 00:20:00
+#SBATCH --mail-user=mattwilliams1515@gmail.com
+#SBATCH --mail-type=all
+
+rm serial.txt
+srun -n 1 -c 1 ./serial -n 500 -no -s serial.txt
+srun -n 1 -c 1 ./serial -n 1000 -no -s serial.txt
+srun -n 1 -c 1 ./serial -n 2000 -no -s serial.txt
+srun -n 1 -c 1 ./serial -n 4000 -no -s serial.txt
+srun -n 1 -c 1 ./serial -n 8000 -no -s serial.txt
+./autograder -v serial -s serial.txt

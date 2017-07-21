@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH -J serial
+#SBATCH -o serial.%j.stdout
+#SBATCH -e serial.%j.error
+#SBATCH -p normal
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -t 00:10:00
+#SBATCH --mail-user=mattwilliams1515@gmail.com
+#SBATCH --mail-type=all
+
+srun -n 1 -c 1 ./serial -n 500 -o serial.txt
